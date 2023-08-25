@@ -28,5 +28,6 @@ int main()
 		}
 		write(1,buffer,count);
 	}
+	close(fd);
 	return 0;
 }

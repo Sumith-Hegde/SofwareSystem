@@ -3,7 +3,7 @@
 #include<fcntl.h>
 int main()
 {
-	int file1=open("/home/sumithhegde/file1",O_CREAT|O_EXCL);
+	int file1=open("/home/sumithhegde/file1",O_EXCL);
 	int file2=open("/home/sumithhegde/file2",O_CREAT|O_EXCL);
 	int file3=open("/home/sumithhegde/file3",O_CREAT|O_EXCL);
 	int file4=creat("/home/sumithhegde/file4",S_IRUSR);
