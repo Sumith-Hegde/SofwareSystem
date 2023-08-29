@@ -16,10 +16,10 @@ int main()
 	}
 	lock.l_type=F_WRLCK;
 	lock.l_whence=SEEK_SET;
-	train--;
-	lock.l_start=train*3;
+	lock.l_start=(train-1)*3;
 	lock.l_len=2;
 	lock.l_pid=getpid();
+	lseek(fd,(train-1)*3,SEEK_SET);
 	int l=fcntl(fd,F_SETLKW,&lock);
 	//printf("%d\n",l);
 	char buff[3]={'0','0','\0'};
@@ -40,6 +40,7 @@ int main()
 		//printf("%d\n",buff[0]-'0');
 		//printf("%d\n",buff[1]-'0');
 		//printf("%ld\n",lseek(fd,0,SEEK_SET));
+		lseek(fd,(train-1)*3,SEEK_SET);
 		write(fd,buff,2);
 		lock.l_type=F_UNLCK;
 		fcntl(fd,F_SETLKW,&lock);
