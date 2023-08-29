@@ -30,6 +30,7 @@ int main()
 		//printf("%d\n",buff[0]-'0');
 		//printf("%d\n",buff[1]-'0');
 		//printf("%ld\n",lseek(fd,0,SEEK_SET));
+		lseek(fd,0,SEEK_SET);
 		write(fd,buff,2);
 		lock.l_type=F_UNLCK;
 		fcntl(fd,F_SETLKW,&lock);

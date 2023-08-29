@@ -16,7 +16,7 @@ int main(int argc,char* argv[])
 		printf("failed to open file");
 	}*/
 	struct stat fileInfo;
-	int s=lstat(argv[1],&fileInfo);
+	int s=stat(argv[1],&fileInfo);
 	printf("%d\n",s);
 	switch(fileInfo.st_mode&S_IFMT)
 	{
