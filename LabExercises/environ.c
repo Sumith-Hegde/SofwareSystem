@@ -1,3 +1,9 @@
+/*
+============================================================================
+Author : Sumith Ramakrishna Hegde
+Description :  Write a program to display the environmental variable of the user (use environ)
+============================================================================
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include<unistd.h>

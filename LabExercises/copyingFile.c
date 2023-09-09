@@ -1,3 +1,9 @@
+/*
+============================================================================
+Author : Sumith Ramakrishna Hegde
+Description :  Write a program to copy file1 into file2 ($cp file1 file2)
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include <sys/types.h>

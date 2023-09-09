@@ -1,24 +1,25 @@
 /*
 ============================================================================
 Author : Sumith Ramakrishna Hegde
-Description :Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
+Description : Write a program to create a Zombie state of the running program
 ============================================================================
 */
 #include<stdio.h>
+#include<sys/types.h>
 #include<unistd.h>
+#include<stdlib.h>
 int main()
 {
-	char buffer[1000];
-	int count=0;
-	while(1)
+	if(!fork())
 	{
-		read(0,&buffer[count],1);
-		count++;
-		if(count==1000||buffer[count-1]=='\n')
+		printf("child(pid - %d) execution completed. Now i will become Zombie!!\n",getpid());
+		exit(0);
+	}
+	else
+	{
+		while(1)
 		{
-			break;
 		}
 	}
-	write(1,&buffer,count);
 	return 0;
 }

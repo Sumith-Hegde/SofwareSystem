@@ -1,3 +1,10 @@
+/*
+============================================================================
+Author : Sumith Ramakrishna Hegde
+Description : Write a program to open a file in read only mode, read line by line and display each line as it is read. 
+Close the file when end of file is reached
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<fcntl.h>

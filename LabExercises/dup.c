@@ -1,3 +1,13 @@
+/*
+============================================================================
+Author : Sumith Ramakrishna Hegde
+Description :  Write a program to open a file, duplicate the file descriptor and append the file with both the 
+descriptors and check whether the file is updated properly or not.
+ a. use dup
+ b. use dup2
+ c. use fcntl
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<fcntl.h>
@@ -12,7 +22,8 @@ int main()
 	}
 	int newFd=dup(fd);
 	int newFd1=dup2(newFd,fd1);
-	printf("first - %d second - %d third - %d ",fd,newFd,newFd1);
+	int newFd2=fcntl(fd,F_DUPFD,7);
+	printf("first - %d second - %d third - %d fourth - %d\n",fd,newFd,newFd1,newFd2);
 	close(fd);
 	return 0;
 }
