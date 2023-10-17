@@ -1,9 +1,9 @@
 /*
 ============================================================================
-Name : 17a.c
-Author : Sumith Hegde
+Name : 17b.c
+Author : Sumith Hegde 
 Description : Write a program to execute ls -l | wc.
-    a. use dup
+    a. use dup2
 ============================================================================
 */
 
@@ -13,20 +13,19 @@ int main(void)
 {
     int fd[2];
     pipe(fd);
-    if(!fork()) 
+    if(fork()) 
     {
-    	close(0);
         close(fd[1]);
-        dup(fd[0]);
+        dup2(fd[0], 0);
         execlp("wc", "wc", NULL);
     } 
     else 
     {
-        close(1);
-        close(fd[0]);
-        dup(fd[1]);
+    	close(fd[0]);
+        dup2(fd[1], 1);
         execl("/bin/ls", "ls", "-l", NULL);
     }
 
     return 0;
 }
+
